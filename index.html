@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INCOMING TRANSMISSION | First Contact Imminent</title>
+  <meta name="description" content="Something is approaching from beyond the stars. Register your coordinates to be notified upon first contact." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👽</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/alien-themed-coming-soon-landi/assets/index-qoi8u-3F.js"></script>
+  <link rel="stylesheet" crossorigin href="/alien-themed-coming-soon-landi/assets/index-DEzgQEJT.css">
+</head>
+<body>
+  <!-- Animated starfield canvas -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Visual overlays -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main class="content">
+
+    <!-- Signal indicator -->
+    <div class="signal-bar" aria-hidden="true">
+      <span class="signal-dot"></span>
+      <span class="signal-text">LIVE SIGNAL DETECTED &mdash; SOURCE: UNKNOWN</span>
+      <span class="signal-dot"></span>
+    </div>
+
+    <!-- Hero heading -->
+    <header class="hero">
+      <div class="alien-icon" aria-hidden="true">
+        <svg viewBox="0 0 80 80" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="40" cy="38" rx="24" ry="30" fill="rgba(0,255,65,0.08)" stroke="#00ff41" stroke-width="1.5"/>
+          <!-- head -->
+          <ellipse cx="40" cy="34" rx="18" ry="22" fill="rgba(0,30,10,0.9)" stroke="#00ff41" stroke-width="1"/>
+          <!-- eyes -->
+          <ellipse cx="32" cy="30" rx="7" ry="5" fill="#00ff41" opacity="0.9"/>
+          <ellipse cx="48" cy="30" rx="7" ry="5" fill="#00ff41" opacity="0.9"/>
+          <ellipse cx="32" cy="30" rx="3" ry="3" fill="#001a00"/>
+          <ellipse cx="48" cy="30" rx="3" ry="3" fill="#001a00"/>
+          <!-- pupils shine -->
+          <circle cx="31" cy="29" r="1" fill="#00ff41"/>
+          <circle cx="47" cy="29" r="1" fill="#00ff41"/>
+          <!-- mouth -->
+          <path d="M34 44 Q40 48 46 44" stroke="#00ff41" stroke-width="1.2" fill="none" opacity="0.6"/>
+          <!-- antennae -->
+          <line x1="34" y1="13" x2="28" y2="4" stroke="#00ff41" stroke-width="1" opacity="0.7"/>
+          <circle cx="28" cy="3" r="2" fill="#00ff41" opacity="0.9"/>
+          <line x1="46" y1="13" x2="52" y2="4" stroke="#00ff41" stroke-width="1" opacity="0.7"/>
+          <circle cx="52" cy="3" r="2" fill="#00ff41" opacity="0.9"/>
+          <!-- glow ring -->
+          <ellipse cx="40" cy="65" rx="20" ry="4" fill="rgba(0,255,65,0.15)" />
+        </svg>
+      </div>
+
+      <h1 class="main-title">
+        <span class="title-line" data-text="INCOMING">INCOMING</span>
+        <span class="title-line accent" data-text="TRANSMISSION">TRANSMISSION</span>
+      </h1>
+
+      <p class="subtitle">
+        An anomalous signal has been intercepted from beyond known space.<br />
+        <em class="highlight">First contact is imminent. Are you prepared?</em>
+      </p>
+    </header>
+
+    <!-- Countdown -->
+    <section class="countdown-section" aria-label="Countdown to arrival">
+      <div class="section-label">ESTIMATED TIME TO ARRIVAL</div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <div class="count-wrapper">
+            <span class="count" id="days">000</span>
+          </div>
+          <span class="count-label">DAYS</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-item">
+          <div class="count-wrapper">
+            <span class="count" id="hours">00</span>
+          </div>
+          <span class="count-label">HOURS</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-item">
+          <div class="count-wrapper">
+            <span class="count" id="minutes">00</span>
+          </div>
+          <span class="count-label">MINUTES</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-item">
+          <div class="count-wrapper">
+            <span class="count" id="seconds">00</span>
+          </div>
+          <span class="count-label">SECONDS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Email signup -->
+    <section class="form-section" aria-label="Email registration">
+      <p class="form-intro">
+        <span class="cursor-blink" aria-hidden="true">&#9658;</span>
+        Register your Earth coordinates to receive the transmission.
+      </p>
+      <form id="signup-form" class="signup-form" novalidate>
+        <div class="input-group">
+          <label for="email-input" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="email-input"
+            name="email"
+            placeholder="human@earth.planet"
+            autocomplete="email"
+            required
+            aria-required="true"
+          />
+          <button type="submit" class="submit-btn" aria-label="Submit email">
+            <span class="btn-text">TRANSMIT</span>
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+        <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <!-- Controls -->
+    <div class="controls" role="group" aria-label="Page controls">
+      <button class="control-btn" id="audio-toggle" aria-pressed="false">
+        <span class="ctrl-icon" aria-hidden="true" id="audio-icon">&#9675;</span>
+        <span id="audio-label">ENABLE AUDIO</span>
+      </button>
+      <button class="control-btn active" id="ufo-toggle" aria-pressed="true">
+        <span class="ctrl-icon" aria-hidden="true">&#10040;</span>
+        <span id="ufo-label">UFO ACTIVE</span>
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="transmission-id">TRANSMISSION ID: XK-7729-ALPHA &nbsp;&bull;&nbsp; SECTOR 7G</div>
+      <div class="classification">CLASSIFIED &bull; EYES ONLY &bull; COSMIC CLEARANCE REQUIRED</div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
